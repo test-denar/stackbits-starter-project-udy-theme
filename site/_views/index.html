@@ -106,7 +106,7 @@
       </div>
       <div class="collection-list-wrapper w-dyn-list">
         <div role="list" class="collection-wrap w-dyn-items">
-          {%- assign collection = collections.blog-posts | limit: 3 -%}{%- for item in collection -%}<div role="listitem" class="blog-preview-wrap w-dyn-item"><img loading="lazy" src="{{ item.data.thumbnail-image }}" alt=""><a href="#" class="business-article-heading">{{ item.data.title }}</a>
+          {%- assign collection = collections.post | limit: 3 -%}{%- for item in collection -%}<div role="listitem" class="blog-preview-wrap w-dyn-item"><img loading="lazy" src="{{ item.data.thumbnail-image }}" alt=""><a href="#" class="business-article-heading">{{ item.data.title }}</a>
             <p class="paragraph-light">{{ item.data.post-summary }}</p>
             <div format="PPPP" class="label cc-blog-date">{{ item.data.created-on }}</div>
           </div>{%- endfor -%}
