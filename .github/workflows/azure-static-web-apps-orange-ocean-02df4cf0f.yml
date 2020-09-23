@@ -18,6 +18,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: Build Webhook
+        uses: denar90/webhook-action@0.1.1
+        with:
+          webhookUrl: "https://artem-stackbit.ngrok.io/project/5f6b01aa6c6371586e955e1b/webhook/github-action"
+          data: '{"event": "build", "status": "started", "github": ${{ toJSON(github) }} }'
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v0.0.1-preview
@@ -31,6 +36,11 @@ jobs:
           app_artifact_location: "./public" # Built app content directory - optional
           app_build_command: "node optimize.js && npx @11ty/eleventy"
           ###### End of Repository/Build Configurations ######
+      - name: Build Webhook
+        uses: denar90/webhook-action@0.1.1
+        with:
+          webhookUrl: "https://artem-stackbit.ngrok.io/project/5f6b01aa6c6371586e955e1b/webhook/github-action"
+          data: '{"event": "build", "status": "finished", "github": ${{ toJSON(github) }} }'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
