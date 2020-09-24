@@ -41,7 +41,7 @@ jobs:
         uses: denar90/webhook-action@0.1.1
         with:
           webhookUrl: "https://artem-stackbit.ngrok.io/project/5f6b01aa6c6371586e955e1b/webhook/github-action"
-          data: '{"event": "build", "status": "finished", "github": ${{ toJSON(github) }}, "job": ${{ toJSON(job) }} }'
+          data: '{"event": "build", "status": "finished", "github": ${{ toJSON(github) }}, "steps": ${{ toJSON(steps) }} }'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
