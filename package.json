@@ -12,5 +12,5 @@
   "devDependencies": {
     "date-fns": "2.8.1",
     "html-minifier": "4.0.0"
-  }
+  }}
 }
